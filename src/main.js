@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExService from './js/exchange-service';
 
-async function listPop() {
-  let exList = await ExService.currencyCall("USA")
+function listPop() {
+  let exList = ExService.currencyCall("USA")
+  console.log(exList)
     .then(function () {
       for (let i = 0; i < exList.conversion_rates.length; i++) {
         $('#exRateOne').append(`<option value="${Object.keys(exList.conversion_rates[i])}">${Object.keys(exList.conversion_rates[i])}</option>`);
@@ -38,7 +39,7 @@ $(document).ready(async function () {
   $("#exchangeButton").click(function () {
     $('.results').empty();
     $('.errorMessage').empty();
-    currConv();
     listPop();
+    currConv();
   });
 });
