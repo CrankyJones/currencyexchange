@@ -30,13 +30,13 @@ async function listPop() {
   console.log(exList);
   console.log(Object.keys(exList.conversion_rates).length);
   if (exList.result) {
-    for (let i = 0; i < exList.conversion_rates.length; i++) {
-      $('<option/>').val(`${Object.keys(exList.conversion_rates[i])}`).text(`${Object.keys(exList.conversion_rates[i])}`).appendTo('.exRateOne');
-      $('<option/>').val(`${Object.keys(exList.conversion_rates[i])}`).text(`${Object.keys(exList.conversion_rates[i])}`).appendTo('.exRateTwo');
-      console.log(`${Object.keys(exList.conversion_rates[i])}`);
+    for (let i = 0; i < Object.keys(exList.conversion_rates).length; i++) {
+      $('<option/>').val(Object.keys(exList.conversion_rates)[i]).text(`${Object.keys(exList.conversion_rates)[i]}`).appendTo('.exRateOne');
+      // $('<option/>').val(Object.keys(exList.conversion_rates[i])).text(`${Object.keys(exList.conversion_rates[i])}`).appendTo('.exRateTwo');
+      // console.log(Object.keys(exList.conversion_rates)[i]);
+
+      $(".exRateTwo").append(`<option value= "${Object.keys(exList.conversion_rates)[i]}"> ${Object.keys(exList.conversion_rates)[i]})</option>`);
     }
-    //   $('#exRateTwo').append(new Option(`${Object.keys(exList.conversion_rates[i])}`, `${Object.keys(exList.conversion_rates[i])}`));
-    // }
     // } else {
     //   $('.errorMessage').append(`The exchange did not go through. There was an error: ${exList.message}`);
     // }
@@ -45,7 +45,7 @@ async function listPop() {
 
 window.onload = function () {
   listPop();
-}
+};
 
 $(document).ready(function () {
   $("#exchangeButton").click(function () {
