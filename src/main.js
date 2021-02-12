@@ -31,17 +31,15 @@ async function listPop() {
   console.log(Object.keys(exList.conversion_rates).length);
   if (exList.result) {
     for (let i = 0; i < Object.keys(exList.conversion_rates).length; i++) {
-      $('<option/>').val(Object.keys(exList.conversion_rates)[i]).text(`${Object.keys(exList.conversion_rates)[i]}`).appendTo('.exRateOne');
-      // $('<option/>').val(Object.keys(exList.conversion_rates[i])).text(`${Object.keys(exList.conversion_rates[i])}`).appendTo('.exRateTwo');
-      // console.log(Object.keys(exList.conversion_rates)[i]);
-
-      $(".exRateTwo").append(`<option value= "${Object.keys(exList.conversion_rates)[i]}"> ${Object.keys(exList.conversion_rates)[i]})</option>`);
+      $("#exRateOne").append(`<option value= "${Object.keys(exList.conversion_rates)[i]}"> ${Object.keys(exList.conversion_rates)[i]}</option>`);
+      $("#exRateTwo").append(`<option value= "${Object.keys(exList.conversion_rates)[i]}"> ${Object.keys(exList.conversion_rates)[i]}</option>`);
     }
-    // } else {
-    //   $('.errorMessage').append(`The exchange did not go through. There was an error: ${exList.message}`);
-    // }
+  } else {
+    $('.errorMessage').append(`The exchange did not go through. There was an error: ${exList.message}`);
   }
 }
+
+
 
 window.onload = function () {
   listPop();
