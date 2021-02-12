@@ -6,20 +6,29 @@
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* Jest
+* NPM
+* JavaScript
+* HTML
+* CSS
+* ExchangeRate API
 
 ## Description
 
+## Getting an API Key
+
+* Head to [this site](https://www.exchangerate-api.com/) to sign up for a free key
+* Click the "Get Free Key" button and follow the instructions
+
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* Clone repository to your desktop
+* Move to top level of the directory in your terminal
+* Create a .env file
+* In .env write : API_KEY=[whatever the API key is you just received](do not include the brackets)
+* Run [$ npm install] to recreate the environment
+* Run [$ npm run build]
+* Open dist/index.html in a browser
 
 ## Known Bugs
 
@@ -27,5 +36,8 @@
 * _should go here_
 
 ## License
+[MIT](https://opensource.org/licenses/MIT)
+Copyright (c) [2021] [Geof Rosenmund]
 
 ## Contact Information
+Geof Rosenmund (geof.rosenmunds.email@gmail.com)
