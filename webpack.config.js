@@ -19,7 +19,7 @@ module.exports = {
       title: 'Project',
       template: './src/index.html',
       inject: 'body'
-    })
+    }),
     new Dotenv()
   ],
   module: {

@@ -12,14 +12,20 @@ async function currConv() {
   let EX1 = $("#exRateOne").val();
   let EX2 = $("#exRateTwo").val();
   let exArray = await ExService.currencyCall(EX1);
+  console.log(exArray);
   if (exArray.result) {
-    exValue = Math.float(input * exArray.${ EX2 } * 100 / 100).toFixed(2)
+    exValue = (input * exArray.conversion_rates[EX2] * 100 / 100).toFixed(2);
+    $('.results').append(`You would have ${exValue} ${EX2} after the exchange.`);
+  } else {
+    $('.errorMessage').append(`The exchange did not go through. There was an error: ${exArray.message}`);
   }
 }
 
 
 $(document).ready(function () {
   $("#exchangeButton").click(function () {
-
-  })
-})
+    $('.results').empty();
+    $('.errorMessage').empty();
+    currConv();
+  });
+});
