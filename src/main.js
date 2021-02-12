@@ -13,14 +13,19 @@ async function currConv() {
     return;
   }
   let EX1 = $("#exRateOne").val();
-  let EX2 = "jkl";
-  // $("#exRateTwo").val();
+  let EX2 = $("#exRateTwo").val();
   let exArray = await ExService.currencyCall(EX1);
   console.log(exArray);
   if (exArray.result) {
-    exValue = calcRate(input, exArray, EX2);
-    $('.results').append(`You would have ${exValue} ${EX2} after the exchange.`);
-    $('.results').show();
+    if (exArray.conversion_rates[EX1] && exArray.conversion_rates[EX2]) {
+      exValue = calcRate(input, exArray, EX2);
+      $('.results').append(`You would have ${exValue} ${EX2} after the exchange.`);
+      $('.results').show();
+    } else {
+      $('.errorMessage').append(`The exchange did not go through.<br>
+      There was an error: Codes did not match data`);
+      $('.errorMessage').show();
+    }
   } else {
     $('.errorMessage').append(`The exchange did not go through.<br>
     There was an error: ${exArray.message}`);
