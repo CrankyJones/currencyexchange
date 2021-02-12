@@ -5,13 +5,15 @@ import './css/styles.css';
 import ExService from './js/exchange-service';
 
 async function listPop() {
-  let exList = await ExService.currencyCall("USA");
-  for (let i = 0; i < exList.conversion_rates.length; i++) {
-    $('#exRateOne').append(`<option value="${exList.conversion_rates[i]}">${exList.conversion_rates[i]}</option>`);
-    $('#exRateTwo').append(`<option value="${exList.conversion_rates[i]}">${exList.conversion_rates[i]}</option>`);
-  }
-
+  let exList = await ExService.currencyCall("USA")
+    .then(function () {
+      for (let i = 0; i < exList.conversion_rates.length; i++) {
+        $('#exRateOne').append(`<option value="${Object.keys(exList.conversion_rates[i])}">${Object.keys(exList.conversion_rates[i])}</option>`);
+        $('#exRateTwo').append(`<option value="${Object.keys(exList.conversion_rates[i])}">${Object.keys(exList.conversion_rates[i])}</option>`);
+      }
+    })
 }
+
 async function currConv() {
   let exValue = 0;
   let input = $("input").val();
@@ -31,14 +33,12 @@ async function currConv() {
   }
 }
 
-window.onload = async function () {
-  await listPop();
-};
 
-$(document).ready(function () {
+$(document).ready(async function () {
   $("#exchangeButton").click(function () {
     $('.results').empty();
     $('.errorMessage').empty();
     currConv();
+    listPop();
   });
 });
