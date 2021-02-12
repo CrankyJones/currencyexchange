@@ -8,7 +8,10 @@ import ExService from './js/exchange-service';
 async function currConv() {
   let exValue = 0;
   let input = $("input").val();
-  // invalid input
+  if (input <= 0) {
+    alert('Please put in a positive number greater than 0.');
+    return;
+  }
   let EX1 = $("#exRateOne").val();
   let EX2 = $("#exRateTwo").val();
   let exArray = await ExService.currencyCall(EX1);
