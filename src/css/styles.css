@@ -1,18 +1,35 @@
 body {
-  padding-top: 15%;
+  padding-top: 5%;
+  background-color: rgb(182, 255, 182);
 }
-
-.input {
-  margin-top: 50px;
-}
-.menus {
-  padding: 10 px;
+.jumbotron{
+  background-color: rgb(223, 140, 140);
 }
 .results {
+  background-color: lightgrey;
+  font-size: larger, bolder;
+  text-align: center;
   margin-top: 15px;
   border: 3px solid black;
+  padding: 7px;
+  margin: 5 px;
 }
-
+.errorMessage {
+  font-size: larger, bolder;
+  background-color: rgb(180, 0, 0);
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+  border: 3px solid black;
+  padding: 7px;
+  margin: 5px;
+}
+.btn {
+  margin-top: 15px;
+}
+label {
+  padding-top: 25px;
+  }
 .question {
   padding: 15 px;
 }
