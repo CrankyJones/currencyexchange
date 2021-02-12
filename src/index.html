@@ -5,14 +5,39 @@
   <title>Currency Exchanger</title>
 </head>
 
-<body>
+<body>USD
   <div class="container">
-    <label for="input">Please enter an amount to exchange in US dollars:</label>
-    <input id="input">
-
-    <div class="results"></div>
-    <div class="errorMessage"></div>
-  </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="input">Please enter an amount to exchange:</label>
+        <input id="input">
+        <label for="exRateOne">Please select the base currency:</label>
+        <select name="exRateOne" id="exRateOne">
+          <option value="USD">United States Dollar</option>
+          <option value="GBP">UK Pound Sterling</option>
+          <option value="CHF">Swiss Franc</option>
+          <option value="CAD">Canadian Dollar</option>
+          <option value="MXN">Mexican Peso</option>
+          <option value="DKK">Danish Krone</option>
+        </select>
+        <div class="col-md-6">
+          <label for="exRateTwo">Please select the exchange currency:</label>
+          <select name="exRateTwo" id="exRateTwo">
+            <option value="USD">United States Dollar</option>
+            <option value="GBP">UK Pound Sterling</option>
+            <option value="CHF">Swiss Franc</option>
+            <option value="CAD">Canadian Dollar</option>
+            <option value="MXN">Mexican Peso</option>
+            <option value="DKK">Danish Krone</option>
+          </select>
+          <button id="exchangeButton"></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="results"></div>
+        <div class="errorMessage"></div>
+      </div>
+    </div>
 </body>
 
 </html>
