@@ -14,7 +14,7 @@ async function currConv() {
   let exArray = await ExService.currencyCall(EX1);
   console.log(exArray);
   if (exArray.result) {
-    exValue = (input * exArray.conversion_rates[EX2] * 100 / 100).toFixed(2);
+    exValue = (input * exArray.conversion_rates[EX2]).toFixed(2);
     $('.results').append(`You would have ${exValue} ${EX2} after the exchange.`);
   } else {
     $('.errorMessage').append(`The exchange did not go through. There was an error: ${exArray.message}`);
