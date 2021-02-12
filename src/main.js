@@ -33,7 +33,6 @@ async function currConv() {
   }
 }
 
-
 async function listPop() {
   let code = "USD";
   let exList = await ExService.currencyCall(code);
