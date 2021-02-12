@@ -25,18 +25,29 @@ async function currConv() {
 
 
 async function listPop() {
-  let code = "USA";
+  let code = "USD";
   let exList = await ExService.currencyCall(code);
-  for (let i = 0; i < exList.conversion_rates.length; i++) {
-    $('#exRateOne').append(new Option(`${Object.keys(exList.conversion_rates[i])}`, `${Object.keys(exList.conversion_rates[i])}`));
-    $('#exRateTwo').append(new Option(`${Object.keys(exList.conversion_rates[i])}`, `${Object.keys(exList.conversion_rates[i])}`));
+  console.log(exList);
+  console.log(Object.keys(exList.conversion_rates).length);
+  if (exList.result) {
+    for (let i = 0; i < exList.conversion_rates.length; i++) {
+      $('<option/>').val(`${Object.keys(exList.conversion_rates[i])}`).text(`${Object.keys(exList.conversion_rates[i])}`).appendTo('.exRateOne');
+      $('<option/>').val(`${Object.keys(exList.conversion_rates[i])}`).text(`${Object.keys(exList.conversion_rates[i])}`).appendTo('.exRateTwo');
+      console.log(`${Object.keys(exList.conversion_rates[i])}`);
+    }
+    //   $('#exRateTwo').append(new Option(`${Object.keys(exList.conversion_rates[i])}`, `${Object.keys(exList.conversion_rates[i])}`));
+    // }
+    // } else {
+    //   $('.errorMessage').append(`The exchange did not go through. There was an error: ${exList.message}`);
+    // }
   }
 }
 
-
+window.onload = function () {
+  listPop();
+}
 
 $(document).ready(function () {
-  listPop();
   $("#exchangeButton").click(function () {
     $('.results').empty();
     $('.errorMessage').empty();
