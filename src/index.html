@@ -7,18 +7,23 @@
 
 <body>
   <div class="container">
+
     <div class="row">
       <div class="col-md-6">
-        <label for="input">Please enter an amount to exchange:</label>
-        <input id="input" type="number" min="0">
-        <label for="exRateOne">Please select the base currency:</label>
-        <select name="exRateOne" id="exRateOne">
-        </select>
-        <div class="col-md-6">
+        <div class="question">
+          <label for="input">Please enter an amount to exchange:</label>
+          <input id="input" type="number" min="0"><br>
+          <label for="exRateOne">Please select the base currency:</label>
+          <select name="exRateOne" id="exRateOne">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="question">
           <label for="exRateTwo">Please select the exchange currency:</label>
           <select name="exRateTwo" id="exRateTwo">
-          </select>
-          <button id="exchangeButton">EXCHANGE</button>
+          </select><br>
+          <button id="exchangeButton" class="btn btn-success">EXCHANGE</button>
         </div>
       </div>
     </div>
@@ -26,6 +31,7 @@
       <div class="results"></div>
       <div class="errorMessage"></div>
     </div>
+  </div>
   </div>
 </body>
 

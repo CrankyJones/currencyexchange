@@ -46,7 +46,9 @@ window.onload = function () {
 };
 
 $(document).ready(function () {
+  $('.results').hide();
   $("#exchangeButton").click(function () {
+
     $('.results').empty();
     $('.errorMessage').empty();
     currConv();
