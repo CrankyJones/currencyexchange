@@ -4,17 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExService from './js/exchange-service';
 
-function listPop() {
-  let exList = ExService.currencyCall("USA")
-  console.log(exList)
-    .then(function () {
-      for (let i = 0; i < exList.conversion_rates.length; i++) {
-        $('#exRateOne').append(`<option value="${Object.keys(exList.conversion_rates[i])}">${Object.keys(exList.conversion_rates[i])}</option>`);
-        $('#exRateTwo').append(`<option value="${Object.keys(exList.conversion_rates[i])}">${Object.keys(exList.conversion_rates[i])}</option>`);
-      }
-    })
-}
-
 async function currConv() {
   let exValue = 0;
   let input = $("input").val();
@@ -35,11 +24,22 @@ async function currConv() {
 }
 
 
-$(document).ready(async function () {
+async function listPop() {
+  let code = "USA";
+  let exList = await ExService.currencyCall(code);
+  for (let i = 0; i < exList.conversion_rates.length; i++) {
+    $('#exRateOne').append(new Option(`${Object.keys(exList.conversion_rates[i])}`, `${Object.keys(exList.conversion_rates[i])}`));
+    $('#exRateTwo').append(new Option(`${Object.keys(exList.conversion_rates[i])}`, `${Object.keys(exList.conversion_rates[i])}`));
+  }
+}
+
+
+
+$(document).ready(function () {
+  listPop();
   $("#exchangeButton").click(function () {
     $('.results').empty();
     $('.errorMessage').empty();
-    listPop();
     currConv();
   });
 });
