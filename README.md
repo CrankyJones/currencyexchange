@@ -16,8 +16,7 @@
 
 ## Description
 
-This project uses an API to convert currency. The project calls an API and uses the received data to populate dropdown menus with currency codes. The user can then input an amount of money, select their starting currency, and then choose which currency they want to convert. Users can then click the button to call the API a second time and generate results underneath the input fields. Any errors with mismatched codes or a failed fetch with appear underneath the input fields as well.   
-
+This project uses an API to convert currency. The project calls an API and uses the received data to populate dropdown menus with currency codes. The user can then input an amount of money, select their starting currency, and then choose which currency they want to convert. Users can then click the button to use the data set from the first API in sessionStorage to generate results underneath the input fields. Any errors with mismatched codes or a failed fetch with appear underneath the input fields as well.   
 
 ## Getting an API Key
 
@@ -38,11 +37,6 @@ This project uses an API to convert currency. The project calls an API and uses 
 ## Known Bugs
 
 There are no known bugs at this time.
-
-## Areas to Improve on in the Future
-
-Being able to cache the initial API call would limit the number of calls to only one per session. Storing all of the codes and values would allow you to (with the help of some math) be able to convert all of the included currencies without making an API call when clicking the Exchange button.
-
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
