@@ -35,9 +35,10 @@ async function currConv() {
   let exArray = JSON.parse(sessionStorage.getItem("exchangeRatesUSD"));
   // let exArray = await ExService.currencyCall(EX1);
   console.log(exArray);
-  if (exArray[0]) {
+  if (exArray.USD) {
     exValue = calcRate(input, exArray, EX1, EX2);
     $('.results').append(`You would have ${exValue} ${EX2} after the exchange.`);
+    $('.results').show();
 
     // if (exArray.conversion_rates[EX1] && exArray.conversion_rates[EX2]) {
     //   exValue = calcRate(input, exArray, EX2);
