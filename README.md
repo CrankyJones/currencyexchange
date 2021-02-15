@@ -16,7 +16,7 @@
 
 ## Description
 
-This project uses an API to convert currency. The project calls an API and uses the received data to populate dropdown menus with currency codes. The user can then input an amount of money, select their starting currency, and then choose which currency they want to convert. Users can then click the button to use the data set from the first API in sessionStorage to generate results underneath the input fields. Any errors with mismatched codes or a failed fetch with appear underneath the input fields as well.   
+This project uses an API to convert currency. The project calls an API and uses the received data to populate dropdown menus with currency codes. The user can then input an amount of money, select their starting currency, and then choose which currency they want to convert. Users can then click the button to use the data set from the first API call that was saved in sessionStorage to generate results underneath the input fields. Any errors with mismatched codes or a failed fetch will appear underneath the input fields as well.   
 
 ## Getting an API Key
 
